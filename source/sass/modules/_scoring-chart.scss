@@ -1,0 +1,39 @@
+#scoring-grid {
+	width: 100%;
+	col {
+		border-right: 1px solid $gray;
+		width: 5%;
+		&.col-1 {
+			width: 30%;
+		}
+		&.col-2, &.col-10 {
+			border-right-width: 4px;
+		}
+	}
+	tr {
+		border: 1px solid $gray;
+	}
+	td, th {
+		padding: 5px;
+	}
+	th {
+		color: $blue;
+		font-weight: bold;
+		position: relative;
+	}
+
+	.not {
+		background-color: #135;
+	}
+	.drop-fencer.hover {
+		background-color: rgba(34,102,170,.5);
+	}
+	[data-strip-side = "red"] {
+			background-color: #c00;
+			color: white;
+	}
+	[data-strip-side = "green"] {
+			background-color: #0c0;
+			color: white;
+	}
+}

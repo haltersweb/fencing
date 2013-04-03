@@ -1,0 +1,12 @@
+.DS_Store
+.bundle
+.sass-cache
+build
+dist
+temp
+source/img/sprite/ico-*.png
+config.yml
+.vagrant
+Thumbs.db
+vagrant
+*.box

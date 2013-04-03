@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.10.2.custom.min.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.32919.js"></script>
+	<script type="text/javascript" src="js/selectivizr-min.js"></script>
+	<script type="text/javascript" src="js/jquery.jsoncookie.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css" media="all"></link>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>Fencing Tournament</h1>
+		</header>
+		<div id="left-panel">
+			<ul id="fencers"></ul>
+		</div>
+		<div id="main">
+			<table id="scoring-grid">
+				<colgroup>
+					<col class="col-1" />
+					<col class="col-2" />
+					<col class="col-3" />
+					<col class="col-4" />
+					<col class="col-5" />
+					<col class="col-6" />
+					<col class="col-7" />
+					<col class="col-8" />
+					<col class="col-9" />
+					<col class="col-10" />
+					<col class="col-11" />
+					<col class="col-12" />
+					<col class="col-13" />
+					<col class="col-14" />
+					<col class="col-15" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>#</th>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>4</th>
+						<th>5</th>
+						<th>6</th>
+						<th>7</th>
+						<th>8</th>
+						<th>V</th>
+						<th>TS</th>
+						<th>TR</th>
+						<th>Ind</th>
+						<th>Pl</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="1"></th>
+						<th>1</th>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="2"></th>
+						<th>2</th>
+						<td></td>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="3"></th>
+						<th>3</th>
+						<td></td>
+						<td></td>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="4"></th>
+						<th>4</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="5"></th>
+						<th>5</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="6"></th>
+						<th>6</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="7"></th>
+						<th>7</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th class="drop-fencer" data-fencer-reference data-strip-side="" data-fencer-seed="8"></th>
+						<th>8</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="not"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="" class="start" data-modal-screen-toggle="true" data-touch-counter-toggle="true">Start Bout</a>
+		</div>
+		<div id="right-panel">
+		</div>
+		<footer>
+			<a href="" class="show-list"><span class="show">show</span><span class="hide">hide</span> list</a>
+		</footer>
+	</div>
+	<div class="modal-screen invisible"></div>
+	<div class="message-modal invisible">
+		<p>Warning message.</p>
+		<a href="" data-modal-screen-toggle="true"  data-message-modal-toggle="true">close</a>
+	</div>
+	<div class="touch-counter invisible">
+		<div class="red">
+			<a href="" class="plus">+</a>
+			<div class="touches" data-touches="red">0</div>
+			<a href="" class="minus">&minus;</a>
+		</div>
+		<div class="green">
+			<a href="" class="plus">+</a>
+			<div class="touches" data-touches="green">0</div>
+			<a href="" class="minus">&minus;</a>
+		</div>
+		<a href="" class="end" data-modal-screen-toggle="true" data-touch-counter-toggle="true">end bout</a>
+	</div>
+</body>
+</html>

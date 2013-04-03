@@ -1,0 +1,10 @@
+.message-modal {
+	@include modal;
+	margin-top: -50px;
+	background-color: #135;
+	p {
+		padding: 20px;
+		font-color: $black;
+		font-weight: bold;
+	}
+}

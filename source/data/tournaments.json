@@ -1,0 +1,72 @@
+{
+ 	"tournaments" : [
+		{
+			"id" : "20969",
+			"date" : "Sun Mar 24 2013",
+			"club" : "Delaware Valley Fencers Club",
+			"street" : "8 Union Hill Road",
+			"city" : "West Conshohocken",
+			"state" : "PA",
+			"events" : [
+				{
+					"id" : "Y12MF",
+					"time" : " 11:30:00 GMT-0400 (Eastern Daylight Time)",
+					"gender" : "mixed",
+					"weapon" : "foil",
+					"age" : "Y12",
+					"fencers" : [
+						{
+							"name" : "Carroll, Emily",
+							"club" : "CDE Circle D' Escrime",
+							"rating" : "U"
+						},
+						{
+							"name" : "Cohn, Mackenzie",
+							"club" : "DVFC Delaware Valley Fencers Club (Philadelphia)",
+							"rating" : "U"
+						},
+						{
+							"name" : "Coplon, Amitai",
+							"club" : "FAP Fencing Academy of Philadelphia",
+							"rating" : "U"
+						},
+						{
+							"name" : "Davis, Christopher",
+							"club" : "LIBERTY FC Liberty Fencing Club LLC",
+							"rating" : "U"
+						},
+						{
+							"name" : "Doyle, Roman",
+							"club" : "LIBERTY FC Liberty Fencing Club LLC",
+							"rating" : "U"
+						},
+						{
+							"name" : "Halter, Lydia",
+							"club" : "FAP Fencing Academy of Philadelphia",
+							"rating" : "U"
+						},
+						{
+							"name" : "Metzloff, Matthew",
+							"club" : "WUFC Wilkes University Fencing Club",
+							"rating" : "U"
+						},
+						{
+							"name" : "Ritchie, Luke",
+							"club" : "BFC Baltimore Fencing Center",
+							"rating" : "U"
+						},
+						{
+							"name" : "Wang, Calvin",
+							"club" : "FAP Fencing Academy of Philadelphia",
+							"rating" : "U"
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
+
+
+

@@ -1,0 +1,420 @@
+/******************************************\
+ *             Reset Styles               *
+\******************************************/
+/* line 13, ../sass/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: none;
+  /* outline: 0; -- do not use in deference to keyboard users */
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 23, ../sass/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 27, ../sass/_reset.scss */
+address, caption, cite, code, dfn, i, em, b, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* line 32, ../sass/_reset.scss */
+b, strong {
+  font-weight: bold;
+}
+
+/* line 36, ../sass/_reset.scss */
+i, em {
+  font-style: italic;
+}
+
+/* line 40, ../sass/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 43, ../sass/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 47, ../sass/_reset.scss */
+textarea {
+  overflow: auto;
+  /* hides the scollbars which IE places inside of textareas */
+}
+
+/* line 51, ../sass/_reset.scss */
+a img {
+  border: none;
+  /* for Firefox on the Mac */
+}
+
+/* :focus {outline: 0;} replaced with a:active {outline: none;} in deference to keyboard users */
+/* line 56, ../sass/_reset.scss */
+a:active {
+  outline: none;
+}
+
+/* line 60, ../sass/_reset.scss */
+ins {
+  text-decoration: none;
+  /* remember to highlight inserts somehow! */
+}
+
+/* line 64, ../sass/_reset.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 68, ../sass/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 73, ../sass/_reset.scss */
+caption, th, td {
+  text-align: left;
+}
+
+/* line 77, ../sass/_reset.scss */
+th, caption {
+  vertical-align: middle;
+}
+
+/* line 78, ../sass/_reset.scss */
+td {
+  vertical-align: top;
+}
+
+/* line 1, ../sass/_brand.scss */
+body {
+  font-family: arial, helvetica, "sans-serif";
+  color: #dddddd;
+  background-color: #121212;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+/* line 9, ../sass/_brand.scss */
+a {
+  color: #32c2fe;
+}
+
+/* line 13, ../sass/_brand.scss */
+li {
+  margin-bottom: 1.5em;
+}
+
+/* line 18, ../sass/_brand.scss */
+header h1 {
+  font-size: 16px;
+}
+
+/* line 1, ../sass/_layout.scss */
+#main, #left-panel, #right-panel {
+  float: left;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 65px 15px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+/* line 11, ../sass/_layout.scss */
+#container {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* line 16, ../sass/_layout.scss */
+#main {
+  width: 100%;
+}
+/* line 18, ../sass/_layout.scss */
+.show-left #main {
+  margin-right: -40%;
+}
+/* line 21, ../sass/_layout.scss */
+.show-right #main {
+  margin-left: -40%;
+}
+
+/* line 26, ../sass/_layout.scss */
+#left-panel, #right-panel {
+  width: 40%;
+}
+
+/* line 30, ../sass/_layout.scss */
+#left-panel {
+  margin-left: -40%;
+}
+/* line 32, ../sass/_layout.scss */
+.show-left #left-panel {
+  margin-left: 0%;
+}
+
+/* line 37, ../sass/_layout.scss */
+#right-panel {
+  margin-right: -40%;
+}
+/* line 39, ../sass/_layout.scss */
+.show-right #right-panel {
+  margin-right: 0%;
+}
+
+/* line 45, ../sass/_layout.scss */
+header,
+footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  background-color: #1C1E1F;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: black 0 0 10px;
+  -moz-box-shadow: black 0 0 10px;
+  box-shadow: black 0 0 10px;
+  padding: 15px;
+}
+
+/* line 54, ../sass/_layout.scss */
+header {
+  top: 0;
+}
+
+/* line 57, ../sass/_layout.scss */
+footer {
+  bottom: 0;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+/* line 62, ../sass/_layout.scss */
+.show-left footer {
+  margin-right: -40%;
+}
+
+/* line 67, ../sass/_layout.scss */
+.show-list .hide {
+  display: none;
+}
+/* line 69, ../sass/_layout.scss */
+.show-left .show-list .hide {
+  display: inline;
+}
+/* line 73, ../sass/_layout.scss */
+.show-list .show {
+  display: inline;
+}
+/* line 75, ../sass/_layout.scss */
+.show-left .show-list .show {
+  display: none;
+}
+
+/* line 80, ../sass/_layout.scss */
+.draggable {
+  cursor: pointer;
+}
+
+/* line 83, ../sass/_layout.scss */
+.invisible {
+  visibility: hidden;
+}
+
+/* line 2, ../sass/modules/_fencer-list.scss */
+#fencers dt {
+  color: #32c2fe;
+}
+/* line 5, ../sass/modules/_fencer-list.scss */
+#fencers dd {
+  font-size: 11px;
+}
+
+/* line 1, ../sass/modules/_scoring-chart.scss */
+#scoring-grid {
+  width: 100%;
+}
+/* line 3, ../sass/modules/_scoring-chart.scss */
+#scoring-grid col {
+  border-right: 1px solid #818283;
+  width: 5%;
+}
+/* line 6, ../sass/modules/_scoring-chart.scss */
+#scoring-grid col.col-1 {
+  width: 30%;
+}
+/* line 9, ../sass/modules/_scoring-chart.scss */
+#scoring-grid col.col-2, #scoring-grid col.col-10 {
+  border-right-width: 4px;
+}
+/* line 13, ../sass/modules/_scoring-chart.scss */
+#scoring-grid tr {
+  border: 1px solid #818283;
+}
+/* line 16, ../sass/modules/_scoring-chart.scss */
+#scoring-grid td, #scoring-grid th {
+  padding: 5px;
+}
+/* line 19, ../sass/modules/_scoring-chart.scss */
+#scoring-grid th {
+  color: #32c2fe;
+  font-weight: bold;
+  position: relative;
+}
+/* line 25, ../sass/modules/_scoring-chart.scss */
+#scoring-grid .not {
+  background-color: #135;
+}
+/* line 28, ../sass/modules/_scoring-chart.scss */
+#scoring-grid .drop-fencer.hover {
+  background-color: rgba(34, 102, 170, 0.5);
+}
+/* line 31, ../sass/modules/_scoring-chart.scss */
+#scoring-grid [data-strip-side="red"] {
+  background-color: #c00;
+  color: white;
+}
+/* line 35, ../sass/modules/_scoring-chart.scss */
+#scoring-grid [data-strip-side="green"] {
+  background-color: #0c0;
+  color: white;
+}
+
+/* line 1, ../sass/modules/_modal-screen.scss */
+.modal-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  left: 0;
+  top: 0;
+}
+
+/* line 1, ../sass/modules/_modal.scss */
+.message-modal {
+  position: relative;
+  width: 280px;
+  margin-left: -150px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border: 2px solid #818283;
+  -webkit-border-radius: 15px 15px;
+  -moz-border-radius: 15px / 15px;
+  border-radius: 15px / 15px;
+  overflow: hidden;
+  -webkit-box-shadow: black;
+  -moz-box-shadow: black;
+  box-shadow: black;
+  margin-top: -50px;
+  background-color: #135;
+}
+/* line 5, ../sass/modules/_modal.scss */
+.message-modal p {
+  padding: 20px;
+  font-color: black;
+  font-weight: bold;
+}
+
+/* line 1, ../sass/modules/_touch-counter.scss */
+.touch-counter {
+  position: relative;
+  width: 280px;
+  margin-left: -150px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border: 2px solid #818283;
+  -webkit-border-radius: 15px 15px;
+  -moz-border-radius: 15px / 15px;
+  border-radius: 15px / 15px;
+  overflow: hidden;
+  -webkit-box-shadow: black;
+  -moz-box-shadow: black;
+  box-shadow: black;
+  margin-top: -180px;
+}
+/* line 4, ../sass/modules/_touch-counter.scss */
+.touch-counter .red, .touch-counter .green {
+  width: 50%;
+  float: left;
+  text-align: center;
+  position: relative;
+  color: #dddddd;
+  padding: 20px 0;
+  font-size: 60px;
+  line-height: 1;
+  font-weight: bold;
+  overflow: hidden;
+}
+/* line 16, ../sass/modules/_touch-counter.scss */
+.touch-counter .red {
+  background-color: #cc0000;
+}
+/* line 19, ../sass/modules/_touch-counter.scss */
+.touch-counter .green {
+  background-color: #00cc00;
+}
+/* line 22, ../sass/modules/_touch-counter.scss */
+.touch-counter .plus, .touch-counter .minus {
+  -webkit-border-radius: 15px 15px;
+  -moz-border-radius: 15px / 15px;
+  border-radius: 15px / 15px;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 -1px 1px #b4f0f7, 0 2px 2px #222222;
+  -moz-box-shadow: 0 -1px 1px #b4f0f7, 0 2px 2px #222222;
+  box-shadow: 0 -1px 1px #b4f0f7, 0 2px 2px #222222;
+  width: 70%;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 20px 0;
+  background-color: #2daebf;
+}
+/* line 33, ../sass/modules/_touch-counter.scss */
+.touch-counter .plus:active, .touch-counter .minus:active {
+  box-shadow: 0 -1px 1px #222222, 0 1px 1px #222222;
+}
+/* line 37, ../sass/modules/_touch-counter.scss */
+.touch-counter .touches {
+  padding: 15px 0;
+  font-size: 80px;
+}

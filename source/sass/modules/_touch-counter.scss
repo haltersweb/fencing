@@ -1,0 +1,45 @@
+.touch-counter {
+	@include modal;
+	margin-top: -180px;
+	.red, .green {
+		width: 50%;
+		float: left;
+		text-align: center;
+		position: relative;
+		color: $white;
+		padding: 20px 0;
+		font-size: 60px;
+		line-height: 1;
+		font-weight: bold;
+		overflow: hidden;
+	}
+	.red {
+		background-color: $red;
+	}
+	.green {
+		background-color: $green;
+	}
+	.plus, .minus {
+		@include border-radius(15px, 15px);
+		@include single-text-shadow;
+		@include box-shadow(0 -1px 1px #b4f0f7, 0 2px 2px #222);
+		width: 70%;
+		display: inline-block;
+		text-decoration: none;
+		color: white;
+		font-weight: bold;
+		padding: 20px 0;
+		background-color: #2daebf;
+		&:active {
+			box-shadow: 0 -1px 1px #222, 0 1px 1px #222;
+		}
+	}
+	.touches {
+		padding: 15px 0;
+		font-size: 80px;
+	}
+}
+
+
+
+

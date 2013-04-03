@@ -1,0 +1,12 @@
+@mixin modal {
+	position: relative;
+	width: 280px;
+	margin-left: -150px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	border: 2px solid $gray;
+	@include border-radius(15px, 15px);
+	overflow: hidden;
+	@include box-shadow(#000);
+}

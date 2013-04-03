@@ -1,0 +1,85 @@
+#main, #left-panel, #right-panel {
+	float: left;
+	display: inline-block;
+	@include box-sizing(border-box);
+	padding: 65px 15px;
+	@include transition-property(all);
+	@include transition-duration(.2s);
+	@include transition-timing-function(ease);
+}
+
+#container {
+	overflow: hidden;
+	width: 100%;
+}
+
+#main {
+	width: 100%;
+	.show-left & {
+		margin-right: -40%;
+	}
+	.show-right & {
+		margin-left: -40%;
+	}
+}
+
+#left-panel, #right-panel {
+	width: 40%;
+}
+
+#left-panel {
+	margin-left: -40%;
+	.show-left & {
+		margin-left: 0%;
+	}
+}
+
+#right-panel {
+	margin-right: -40%;
+	.show-right & {
+		margin-right: 0%;
+	}
+}
+
+header,
+footer {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	background-color: #1C1E1F;
+	@include single-box-shadow;
+	@include box-shadow(#000 0 0 10px);
+	padding: 15px;
+}
+header {
+	top: 0;
+}
+footer {
+	bottom: 0;
+	@include transition-property(all);
+	@include transition-duration(.2s);
+	@include transition-timing-function(ease);
+	.show-left & {
+		margin-right: -40%;
+	}
+}
+.show-list {
+	.hide {
+		display: none;
+		.show-left & {
+			display: inline;
+		}
+	}
+	.show {
+		display: inline;
+		.show-left & {
+			display: none;
+		}
+	}
+}
+.draggable {
+	cursor: pointer;
+}
+.invisible {
+	visibility: hidden;
+}
