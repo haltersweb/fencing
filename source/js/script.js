@@ -8,13 +8,13 @@ var FNC = FNC || (function () {
 
 FNC.model = {
 	getObjects : function () {
-		FNC.model.touches = {
-			red : 0,
-			green : 0
+		FNC.model.red = {
+			touches : 0,
+			boutAssignment : null
 		};
-		FNC.model.boutAssignment = {
-			red : null,
-			green : null
+		FNC.model.green = {
+			touches : 0,
+			boutAssignment : null
 		};
 	},
 	tourneyData : {},
@@ -34,15 +34,15 @@ FNC.model = {
 		if (!$currentFencers) {
 			//nullify FNC.model.boutAssignment
 			var key;
-			for (key in FNC.model.boutAssignment) {
-				if (FNC.model.boutAssignment.hasOwnProperty(key)) {
-					FNC.model.boutAssignment[key] = null;
+			for (key in FNC.model) {
+				if (FNC.model.hasOwnProperty(key)) {
+					FNC.model[key].boutAssignment = null;
 				}
 			}
 			return false;
 		}
 		$currentFencers.each(function (index) {
-			FNC.model.boutAssignment[$(this).attr("data-strip-side")] = $(this).attr("data-fencer-seed");
+			FNC.model[$(this).attr("data-strip-side")].boutAssignment = $(this).attr("data-fencer-seed");
 		});
 	}
 };
@@ -52,12 +52,12 @@ FNC.view = {
 		FNC.view.$modalScreen = $('.modal-screen');
 		FNC.view.$messageModal = $('.message-modal');
 		FNC.view.$touchCounter = $('.touch-counter');
-		FNC.view.$touches = {
+		FNC.view.$touchCounterTouches = {
 			red : $('[data-touches="red"]'),
 			green : $('[data-touches="green"]')
 		};
 		FNC.view.$fencersOnStrip = {};
-		FNC.view.$fencerScoreCell = {
+		FNC.view.$boutScoringCell = {
 			red : null,
 			green : null
 		};
@@ -98,13 +98,13 @@ FNC.view = {
 		FNC.view.$messageModal.toggleClass('invisible');
 	},
 	assignFencerCells : function () {
-		var red = FNC.model.boutAssignment.red,
-			green = FNC.model.boutAssignment.green;
-		FNC.view.$fencerScoreCell.red = $('#scoring-grid tbody tr:nth-child(' + red + ') td:nth-of-type(' + green + ')');
-		FNC.view.$fencerScoreCell.green = $('#scoring-grid tbody tr:nth-child(' + green + ') td:nth-of-type(' + red + ')');
+		var red = FNC.model.red.boutAssignment,
+			green = FNC.model.green.boutAssignment;
+		FNC.view.$boutScoringCell.red = $('#scoring-grid tbody tr:nth-child(' + red + ') td:nth-of-type(' + green + ')');
+		FNC.view.$boutScoringCell.green = $('#scoring-grid tbody tr:nth-child(' + green + ') td:nth-of-type(' + red + ')');
 	},
 	recordTouches : function (color) {
-		FNC.view.$touches[color].text(FNC.model.touches[color]);
+		FNC.view.$touchCounterTouches[color].text(FNC.model[color].touches);
 		//also show score on scoresheet
 		
 	}
@@ -131,7 +131,7 @@ FNC.events = {
 		$('.touch-counter div a').click(function (evt) {
 			evt.preventDefault();
 			var color = $(this).parent().attr('class');
-			FNC.model.touches[color] += (($(this).hasClass('plus')) ? 1 : -1);
+			FNC.model[color].touches += (($(this).hasClass('plus')) ? 1 : -1);
 			FNC.view.recordTouches(color);
 		});
 	},
