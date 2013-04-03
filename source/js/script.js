@@ -8,12 +8,14 @@ var FNC = FNC || (function () {
 
 FNC.model = {
 	getObjects : function () {
-		FNC.model.touches = [];
-		FNC.model.touches["red"] = 0;
-		FNC.model.touches["green"] = 0;
-		FNC.model.boutAssignment = [];
-		FNC.model.boutAssignment["red"] = null;
-		FNC.model.boutAssignment["green"] = null;
+		FNC.model.touches = {
+			red : 0,
+			green : 0
+		};
+		FNC.model.boutAssignment = {
+			red : null,
+			green : null
+		};
 	},
 	tourneyData : {},
 	getTournaments : function () {
@@ -30,7 +32,12 @@ FNC.model = {
 	},
 	setBoutAssignment : function ($currentFencers) {
 		if(!$currentFencers) {
-			FNC.model.boutAssignment = [];
+			//nullify FNC.model.boutAssignment
+			for (key in FNC.model.boutAssignment) {
+				if (FNC.model.boutAssignment.hasOwnProperty(key)) {
+					FNC.model.boutAssignment[key] = null;
+				}
+			}
 			return false;
 		}
 		$currentFencers.each(function (index) {
@@ -44,9 +51,10 @@ FNC.view = {
 		FNC.view.$modalScreen = $('.modal-screen');
 		FNC.view.$messageModal = $('.message-modal');
 		FNC.view.$touchCounter = $('.touch-counter');
-		FNC.view.$touches = [];
-		FNC.view.$touches["red"] = $('[data-touches="red"]');
-		FNC.view.$touches["green"] = $('[data-touches="green"]');
+		FNC.view.$touches = {
+			red : $('[data-touches="red"]'),
+			green : $('[data-touches="green"]')
+		};
 		FNC.view.$fencersOnStrip = {};
 	},
 	buildTourneyPage : function () {
