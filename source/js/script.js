@@ -31,8 +31,9 @@ FNC.model = {
 			});
 	},
 	setBoutAssignment : function ($currentFencers) {
-		if(!$currentFencers) {
+		if (!$currentFencers) {
 			//nullify FNC.model.boutAssignment
+			var key;
 			for (key in FNC.model.boutAssignment) {
 				if (FNC.model.boutAssignment.hasOwnProperty(key)) {
 					FNC.model.boutAssignment[key] = null;
@@ -56,6 +57,10 @@ FNC.view = {
 			green : $('[data-touches="green"]')
 		};
 		FNC.view.$fencersOnStrip = {};
+		FNC.view.$fencerScoreCell = {
+			red : null,
+			green : null
+		};
 	},
 	buildTourneyPage : function () {
 		$('body').attr('data-tournament-index', FNC.model.tourneyData.id);
@@ -92,9 +97,16 @@ FNC.view = {
 		FNC.view.$messageModal.find('p').text(message);
 		FNC.view.$messageModal.toggleClass('invisible');
 	},
+	assignFencerCells : function () {
+		var red = FNC.model.boutAssignment.red,
+			green = FNC.model.boutAssignment.green;
+		FNC.view.$fencerScoreCell.red = $('#scoring-grid tbody tr:nth-child(' + red + ') td:nth-of-type(' + green + ')');
+		FNC.view.$fencerScoreCell.green = $('#scoring-grid tbody tr:nth-child(' + green + ') td:nth-of-type(' + red + ')');
+	},
 	recordTouches : function (color) {
 		FNC.view.$touches[color].text(FNC.model.touches[color]);
 		//also show score on scoresheet
+		
 	}
 };
 
@@ -143,7 +155,6 @@ FNC.events = {
 				return false;
 			}
 			$currentFencers.each(function (index, elem) {
-				FNC.view.$fencersOnStrip;
 				uniqueRed += (($(elem).attr("data-strip-side") === "red") ? 1 : 0);
 			});
 			if (uniqueRed !== 1) {
@@ -157,6 +168,7 @@ FNC.events = {
 			}
 			FNC.view.$fencersOnStrip = $currentFencers;
 			FNC.model.setBoutAssignment(FNC.view.$fencersOnStrip);
+			FNC.view.assignFencerCells();
 		});
 	},
 	initializeEvents : function () {
