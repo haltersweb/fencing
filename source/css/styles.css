@@ -298,20 +298,39 @@ footer {
   font-weight: bold;
   position: relative;
 }
-/* line 25, ../sass/modules/_scoring-chart.scss */
+/* line 24, ../sass/modules/_scoring-chart.scss */
+#scoring-grid .touches-scored {
+  text-align: center;
+}
+/* line 26, ../sass/modules/_scoring-chart.scss */
+#scoring-grid .touches-scored:after {
+  content: "V";
+  width: 50%;
+  text-align: center;
+  display: block;
+  float: right;
+  border-left: 1px solid #818283;
+  overflow: hidden;
+  text-indent: -100%;
+}
+/* line 36, ../sass/modules/_scoring-chart.scss */
+#scoring-grid .touches-scored.victory:after {
+  text-indent: 0;
+}
+/* line 40, ../sass/modules/_scoring-chart.scss */
 #scoring-grid .not {
   background-color: #135;
 }
-/* line 28, ../sass/modules/_scoring-chart.scss */
+/* line 43, ../sass/modules/_scoring-chart.scss */
 #scoring-grid .drop-fencer.hover {
   background-color: rgba(34, 102, 170, 0.5);
 }
-/* line 31, ../sass/modules/_scoring-chart.scss */
+/* line 46, ../sass/modules/_scoring-chart.scss */
 #scoring-grid [data-strip-side="red"] {
   background-color: #c00;
   color: white;
 }
-/* line 35, ../sass/modules/_scoring-chart.scss */
+/* line 50, ../sass/modules/_scoring-chart.scss */
 #scoring-grid [data-strip-side="green"] {
   background-color: #0c0;
   color: white;

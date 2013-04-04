@@ -21,7 +21,22 @@
 		font-weight: bold;
 		position: relative;
 	}
-
+	.touches-scored {
+		text-align: center;
+		&:after {
+			content: "V";
+			width: 50%;
+			text-align: center;
+			display: block;
+			float: right;
+			border-left: 1px solid $gray;
+			overflow: hidden;
+			text-indent: -100%;
+		}
+		&.victory:after {
+			text-indent: 0;
+		}
+	}
 	.not {
 		background-color: #135;
 	}

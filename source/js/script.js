@@ -4,7 +4,7 @@ var FNC = FNC || (function () {
   'use strict';
   var self = {};
   self.model = {
-    getObjects : function () {
+    getObjects : function () { //FNC.model
       FNC.model.red = {
         touches : 0,
         boutAssignment : null
@@ -14,8 +14,8 @@ var FNC = FNC || (function () {
         boutAssignment : null
       };
     },
-    tourneyData : {},
-    getTournaments : function () {
+    tourneyData : {}, //FNC.model
+    getTournaments : function () { //FNC.model
       $.getJSON("data/tournaments.json")
         .done(function (data) {
           console.log("Test JSON Data: " + data.tournaments[0].events[0].fencers[0].name);
@@ -27,15 +27,16 @@ var FNC = FNC || (function () {
           console.log("Request Failed: " + err);
         });
     },
-    setBoutAssignment : function ($currentFencers) {
+    setBoutAssignment : function ($currentFencers) { //FNC.model
+      //nullify FNC.model.boutAssignment at end of bout
       if (!$currentFencers) {
-        //nullify FNC.model.boutAssignment
         var key;
         for (key in FNC.model) {
           if (FNC.model.hasOwnProperty(key)) {
             FNC.model[key].boutAssignment = null;
           }
         }
+        //also, need to dehighlight green / red names
         return false;
       }
       $currentFencers.each(function (index) {
@@ -44,7 +45,7 @@ var FNC = FNC || (function () {
     }
   };
   self.view = {
-    getObjects : function () {
+    getObjects : function () { //FNC.view
       FNC.view.$modalScreen = $('.modal-screen');
       FNC.view.$messageModal = $('.message-modal');
       FNC.view.$touchCounter = $('.touch-counter');
@@ -58,11 +59,11 @@ var FNC = FNC || (function () {
         green : null
       };
     },
-    buildTourneyPage : function () {
+    buildTourneyPage : function () { //FNC.view
       $('body').attr('data-tournament-index', FNC.model.tourneyData.id);
       FNC.view.buildFencerList();
     },
-    buildFencerList : function () {
+    buildFencerList : function () { //FNC.view
       var html = '';
       $.each(FNC.model.tourneyData.events[0].fencers, function (index, fencer) {
         html += '<li data-fencer-index=' + index + '><dl>';
@@ -72,7 +73,7 @@ var FNC = FNC || (function () {
       $('#fencers').html(html);
       FNC.view.dragDropFencers();
     },
-    dragDropFencers : function () {
+    dragDropFencers : function () { //FNC.view
       var scorepadFencerPopulator = {};
       $('.draggable').draggable({ opacity: 0.7, helper: "clone", containment: "document", cursor: "pointer", revert: false, revertDuration: 300,
         start: function () {
@@ -89,29 +90,38 @@ var FNC = FNC || (function () {
         }
       });
     },
-    assignMessageModal : function (message) {
+    assignMessageModal : function (message) { //FNC.view
       FNC.view.$messageModal.find('p').text(message);
       FNC.view.$messageModal.toggleClass('invisible');
     },
-    assignFencerCells : function () {
+    assignFencerCells : function () { //FNC.view
       var red = FNC.model.red.boutAssignment,
         green = FNC.model.green.boutAssignment;
       FNC.view.$boutScoringCell.red = $('#scoring-grid tbody tr:nth-child(' + red + ') td:nth-of-type(' + green + ')');
       FNC.view.$boutScoringCell.green = $('#scoring-grid tbody tr:nth-child(' + green + ') td:nth-of-type(' + red + ')');
     },
-    recordTouches : function (color) {
+    recordTouches : function (color) { //FNC.view
       FNC.view.$touchCounterTouches[color].text(FNC.model[color].touches);
-      //also show score on scoresheet
+      FNC.view.$boutScoringCell[color].text(FNC.model[color].touches);
+    },
+    showVictor : function () {
+      if (FNC.model.red.touches > FNC.model.green.touches) {
+        FNC.view.$boutScoringCell.red.addClass("victory");
+        FNC.view.$boutScoringCell.green.removeClass("victory");
+        return true;
+      }
+      FNC.view.$boutScoringCell.red.removeClass("victory");
+      FNC.view.$boutScoringCell.green.addClass("victory");
     }
   };
   self.events = {
-    offCanvasEvents : function () {
+    offCanvasEvents : function () { //FNC.events
       $('.show-list').click(function (evt) {
         evt.preventDefault();
         $('#container').toggleClass('show-left');
       });
     },
-    assignStripSide : function () {
+    assignStripSide : function () { //FNC.events
       $('[data-strip-side]').click(function (evt) {
         if ($(this).attr('data-strip-side') === "green") {
           $(this).attr('data-strip-side', '');
@@ -121,7 +131,7 @@ var FNC = FNC || (function () {
         $(this).attr('data-strip-side', color);
       });
     },
-    scoringButtons : function () {
+    scoringButtons : function () { //FNC.events
       $('.touch-counter div a').click(function (evt) {
         evt.preventDefault();
         var color = $(this).parent().attr('class');
@@ -129,18 +139,18 @@ var FNC = FNC || (function () {
         FNC.view.recordTouches(color);
       });
     },
-    toggleModalScreen : function () {
+    toggleModalScreen : function () { //FNC.events
       $('[data-modal-screen-toggle="true"]').click(function (evt) {
         evt.preventDefault();
         FNC.view.$modalScreen.toggleClass('invisible');
       });
     },
-    toggleMessageModal : function () {
+    toggleMessageModal : function () { //FNC.events
       $('[data-message-modal-toggle="true"]').click(function (evt) {
         FNC.view.$messageModal.toggleClass('invisible');
       });
     },
-    toggleTouchCounter : function () {
+    toggleTouchCounter : function () { //FNC.events
       $('[data-touch-counter-toggle="true"]').click(function (evt) {
         var $currentFencers = $('[data-strip-side*="r"]'),
           uniqueRed = 0;
@@ -157,7 +167,8 @@ var FNC = FNC || (function () {
         }
         FNC.view.$touchCounter.toggleClass('invisible');
         if (FNC.view.$touchCounter.hasClass('invisible')) {
-          FNC.model.setBoutAssignment();
+          FNC.model.setBoutAssignment(null);
+          FNC.view.showVictor();
           return false;
         }
         FNC.view.$fencersOnStrip = $currentFencers;
@@ -165,7 +176,7 @@ var FNC = FNC || (function () {
         FNC.view.assignFencerCells();
       });
     },
-    initializeEvents : function () {
+    initializeEvents : function () { //FNC.events
       FNC.events.offCanvasEvents();
       FNC.events.assignStripSide();
       FNC.events.scoringButtons();
@@ -176,14 +187,6 @@ var FNC = FNC || (function () {
   };
   return self;
 }());
-
-
-
-
-
-//bind plus to sibling counter
-//bind minus to reverse sibling counter
-//bind change to copy match to scoring paper
 
 $(document).ready(function () {
   'use strict';
