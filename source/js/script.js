@@ -97,12 +97,21 @@ var FNC = FNC || (function () {
     assignFencerCells : function () { //FNC.view
       var red = FNC.model.red.boutAssignment,
         green = FNC.model.green.boutAssignment;
-      FNC.view.$boutScoringCell.red = $('#scoring-grid tbody tr:nth-child(' + red + ') td:nth-of-type(' + green + ') .touches-scored');
-      FNC.view.$boutScoringCell.green = $('#scoring-grid tbody tr:nth-child(' + green + ') td:nth-of-type(' + red + ') .touches-scored');
+      FNC.view.$boutScoringCell.red = $('#scoring-grid tbody tr:nth-child(' + red + ') td:nth-of-type(' + green + ')');
+      FNC.view.$boutScoringCell.green = $('#scoring-grid tbody tr:nth-child(' + green + ') td:nth-of-type(' + red + ')');
     },
     recordTouches : function (color) { //FNC.view
       FNC.view.$touchCounterTouches[color].text(FNC.model[color].touches);
       FNC.view.$boutScoringCell[color].text(FNC.model[color].touches);
+    },
+    showVictor : function () {
+      if (FNC.model.red.touches > FNC.model.green.touches) {
+        FNC.view.$boutScoringCell.red.addClass("victory");
+        FNC.view.$boutScoringCell.green.removeClass("victory");
+        return true;
+      }
+      FNC.view.$boutScoringCell.red.removeClass("victory");
+      FNC.view.$boutScoringCell.green.addClass("victory");
     }
   };
   self.events = {
