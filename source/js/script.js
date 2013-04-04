@@ -18,7 +18,7 @@ var FNC = FNC || (function () {
     getTournaments : function () { //FNC.model
       $.getJSON("data/tournaments.json")
         .done(function (data) {
-          console.log("Test JSON Data: " + data.tournaments[0].events[0].fencers[0].name);
+          console.log("Test JSON Data: " + data.tournaments[0].events[0].fencers[0].first_name);
           FNC.model.tourneyData = data.tournaments[0];
           FNC.view.buildTourneyPage();
         })
@@ -60,14 +60,14 @@ var FNC = FNC || (function () {
       };
     },
     buildTourneyPage : function () { //FNC.view
-      $('body').attr('data-tournament-index', FNC.model.tourneyData.id);
+      $('body').attr('data-tournament-id', FNC.model.tourneyData.id);
       FNC.view.buildFencerList();
     },
     buildFencerList : function () { //FNC.view
       var html = '';
       $.each(FNC.model.tourneyData.events[0].fencers, function (index, fencer) {
-        html += '<li data-fencer-index=' + index + '><dl>';
-        html += '<dt class="draggable fencer">' + fencer.name + '</dt><dd>' + fencer.club + '</dd>';
+        html += '<li data-competitor-id=' + fencer.competitor_id + '><dl>';
+        html += '<dt class="draggable fencer">' + fencer.first_name + ' ' + fencer.last_name + '</dt><dd>' + fencer.club_initials + ' ' + fencer.club_name + '</dd>';
         html += '</dl></li>';
       });
       $('#fencers').html(html);
@@ -78,14 +78,14 @@ var FNC = FNC || (function () {
       $('.draggable').draggable({ opacity: 0.7, helper: "clone", containment: "document", cursor: "pointer", revert: false, revertDuration: 300,
         start: function () {
           scorepadFencerPopulator = {
-            index : $(this).closest('li').attr('data-fencer-index'),
+            index : $(this).closest('li').attr('data-competitor-id'),
             text : $(this).text()
           };
         }
       });
       $('.drop-fencer').droppable({ hoverClass: "hover", tolerance: "pointer", accept: ".fencer",
         drop: function () {
-          $(this).attr('data-fencer-reference', scorepadFencerPopulator.index);
+          $(this).attr('data-competitor-id', scorepadFencerPopulator.index);
           $(this).text(scorepadFencerPopulator.text);
         }
       });
