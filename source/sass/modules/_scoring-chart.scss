@@ -21,7 +21,19 @@
 		font-weight: bold;
 		position: relative;
 	}
-
+	.touches-scored,
+	.victory {
+		width: 50%;
+		text-align: center;
+		display: block;
+		float: left;
+	}
+	.touches-scored {
+		border-right: 1px solid $gray;
+	}
+	.victory {
+		margin-left: -1px;
+	}
 	.not {
 		background-color: #135;
 	}
