@@ -1,63 +1,73 @@
 {
  	"tournaments" : [
 		{
-			"id" : "20969",
-			"date" : "Sun Mar 24 2013",
-			"club" : "Delaware Valley Fencers Club",
-			"street" : "8 Union Hill Road",
-			"city" : "West Conshohocken",
-			"state" : "PA",
+			"id" : "21057",
+			"name" : "BCAF-WEST Y-12 and Y-14 Mixed Foil-YOUTH CUP #2",
+			"start_date" : "2013-04-07",
+			"venue" : {
+				"club" : "Bucks County Academy of Fencing - West",
+				"address" : "1713 Route 309",
+				"city" : "Hatfield",
+				"state" : "PA",
+				"zip" : "19440",
+				"country" : "USA",
+				"timezone" : "America/New_York",
+				"latitude" : "40.2913592",
+				"longitude" : "-75.2719914",
+				"geocode_precision" : "street"
+			},
 			"events" : [
 				{
-					"id" : "Y12MF",
-					"time" : " 11:30:00 GMT-0400 (Eastern Daylight Time)",
+					"id" : "86450",
+					"full_name" : "Y12 Mixed Foil",
+					"close_of_reg" : "2013-04-07T10:00:00-04:00",
 					"gender" : "mixed",
 					"weapon" : "foil",
 					"age" : "Y12",
 					"fencers" : [
 						{
-							"name" : "Carroll, Emily",
-							"club" : "CDE Circle D' Escrime",
+							"id" : "000000",
+							"competitor_id" : "00000",
+							"first_name" : "Emily",
+							"last_name" : "Carroll",
+							"club_name" : "Circle D' Escrime",
+							"club_initials" : "CDE",
 							"rating" : "U"
 						},
 						{
-							"name" : "Cohn, Mackenzie",
-							"club" : "DVFC Delaware Valley Fencers Club (Philadelphia)",
+							"id" : "000000",
+							"competitor_id" : "00000",
+							"first_name" : "Mackenzie",
+							"last_name" : "Cohn",
+							"club_name" : "Delaware Valley Fencers Club (Philadelphia)",
+							"club_initials" : "DVFC",
 							"rating" : "U"
 						},
 						{
-							"name" : "Coplon, Amitai",
-							"club" : "FAP Fencing Academy of Philadelphia",
+							"id" : "000000",
+							"competitor_id" : "00000",
+							"first_name" : "Amitai",
+							"last_name" : "Coplon",
+							"club_name" : "Fencing Academy of Philadelphia",
+							"club_initials" : "FAP",
 							"rating" : "U"
 						},
 						{
-							"name" : "Davis, Christopher",
-							"club" : "LIBERTY FC Liberty Fencing Club LLC",
+							"id" : "000000",
+							"competitor_id" : "00000",
+							"first_name" : "Christopher",
+							"last_name" : "Davis",
+							"club_name" : "Liberty Fencing Club LLC",
+							"club_initials" : "LIBERTY FC",
 							"rating" : "U"
 						},
 						{
-							"name" : "Doyle, Roman",
-							"club" : "LIBERTY FC Liberty Fencing Club LLC",
-							"rating" : "U"
-						},
-						{
-							"name" : "Halter, Lydia",
-							"club" : "FAP Fencing Academy of Philadelphia",
-							"rating" : "U"
-						},
-						{
-							"name" : "Metzloff, Matthew",
-							"club" : "WUFC Wilkes University Fencing Club",
-							"rating" : "U"
-						},
-						{
-							"name" : "Ritchie, Luke",
-							"club" : "BFC Baltimore Fencing Center",
-							"rating" : "U"
-						},
-						{
-							"name" : "Wang, Calvin",
-							"club" : "FAP Fencing Academy of Philadelphia",
+							"id" : "844376",
+							"competitor_id" : "71227",
+							"first_name" : "Lydia",
+							"last_name" : "Halter",
+							"club_name" : "Fencing Academy of Philadelphia",
+							"club_initials" : "FAP",
 							"rating" : "U"
 						}
 					]

@@ -16,10 +16,11 @@ var FNC = FNC || (function () {
     },
     tourneyData : {}, //FNC.model
     getTournaments : function () { //FNC.model
-      $.getJSON("data/tournaments.json")
+      var eventId = prompt("Enter the event number.");
+      $.getJSON("data/86450.json")
         .done(function (data) {
-          console.log("Test JSON Data: " + data.tournaments[0].events[0].fencers[0].name);
-          FNC.model.tourneyData = data.tournaments[0];
+          console.log("Test JSON Data: " + data.event.preregs[0].competitor.first_name + " " + data.event.preregs[0].competitor.last_name);
+          FNC.model.tourneyData = data.event;
           FNC.view.buildTourneyPage();
         })
         .fail(function (jqxhr, textStatus, error) {
@@ -60,14 +61,14 @@ var FNC = FNC || (function () {
       };
     },
     buildTourneyPage : function () { //FNC.view
-      $('body').attr('data-tournament-index', FNC.model.tourneyData.id);
+      $('body').attr('data-tournament-id', FNC.model.tourneyData.tournament_id).attr('data-event-id', FNC.model.tourneyData.id);
       FNC.view.buildFencerList();
     },
     buildFencerList : function () { //FNC.view
       var html = '';
-      $.each(FNC.model.tourneyData.events[0].fencers, function (index, fencer) {
-        html += '<li data-fencer-index=' + index + '><dl>';
-        html += '<dt class="draggable fencer">' + fencer.name + '</dt><dd>' + fencer.club + '</dd>';
+      $.each(FNC.model.tourneyData.preregs, function (index, fencer) {
+        html += '<li data-competitor-id=' + fencer.competitor.id + '><dl>';
+        html += '<dt class="draggable fencer">' + fencer.competitor.first_name + ' ' + fencer.competitor.last_name + '</dt><dd>' + fencer.club.initials + ' ' + fencer.club.name + '</dd>';
         html += '</dl></li>';
       });
       $('#fencers').html(html);
@@ -78,14 +79,14 @@ var FNC = FNC || (function () {
       $('.draggable').draggable({ opacity: 0.7, helper: "clone", containment: "document", cursor: "pointer", revert: false, revertDuration: 300,
         start: function () {
           scorepadFencerPopulator = {
-            index : $(this).closest('li').attr('data-fencer-index'),
+            index : $(this).closest('li').attr('data-competitor-id'),
             text : $(this).text()
           };
         }
       });
       $('.drop-fencer').droppable({ hoverClass: "hover", tolerance: "pointer", accept: ".fencer",
         drop: function () {
-          $(this).attr('data-fencer-reference', scorepadFencerPopulator.index);
+          $(this).attr('data-competitor-id', scorepadFencerPopulator.index);
           $(this).text(scorepadFencerPopulator.text);
         }
       });
