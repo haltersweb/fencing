@@ -16,10 +16,11 @@ var FNC = FNC || (function () {
     },
     tourneyData : {}, //FNC.model
     getTournaments : function () { //FNC.model
-      $.getJSON("data/tournaments.json")
+      var eventId = prompt("Enter the event number.");
+      $.getJSON("data/86450.json")
         .done(function (data) {
-          console.log("Test JSON Data: " + data.tournaments[0].events[0].fencers[0].first_name);
-          FNC.model.tourneyData = data.tournaments[0];
+          console.log("Test JSON Data: " + data.event.preregs[0].competitor.first_name + " " + data.event.preregs[0].competitor.last_name);
+          FNC.model.tourneyData = data.event;
           FNC.view.buildTourneyPage();
         })
         .fail(function (jqxhr, textStatus, error) {
@@ -60,14 +61,14 @@ var FNC = FNC || (function () {
       };
     },
     buildTourneyPage : function () { //FNC.view
-      $('body').attr('data-tournament-id', FNC.model.tourneyData.id);
+      $('body').attr('data-tournament-id', FNC.model.tourneyData.tournament_id).attr('data-event-id', FNC.model.tourneyData.id);
       FNC.view.buildFencerList();
     },
     buildFencerList : function () { //FNC.view
       var html = '';
-      $.each(FNC.model.tourneyData.events[0].fencers, function (index, fencer) {
-        html += '<li data-competitor-id=' + fencer.competitor_id + '><dl>';
-        html += '<dt class="draggable fencer">' + fencer.first_name + ' ' + fencer.last_name + '</dt><dd>' + fencer.club_initials + ' ' + fencer.club_name + '</dd>';
+      $.each(FNC.model.tourneyData.preregs, function (index, fencer) {
+        html += '<li data-competitor-id=' + fencer.competitor.id + '><dl>';
+        html += '<dt class="draggable fencer">' + fencer.competitor.first_name + ' ' + fencer.competitor.last_name + '</dt><dd>' + fencer.club.initials + ' ' + fencer.club.name + '</dd>';
         html += '</dl></li>';
       });
       $('#fencers').html(html);
