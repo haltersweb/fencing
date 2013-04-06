@@ -203,14 +203,15 @@ footer {
   -moz-box-shadow: black 0 0 10px;
   box-shadow: black 0 0 10px;
   padding: 15px;
+  z-index: 10;
 }
 
-/* line 54, ../sass/_layout.scss */
+/* line 55, ../sass/_layout.scss */
 header {
   top: 0;
 }
 
-/* line 57, ../sass/_layout.scss */
+/* line 58, ../sass/_layout.scss */
 footer {
   bottom: 0;
   -webkit-transition-property: all;
@@ -226,34 +227,34 @@ footer {
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 62, ../sass/_layout.scss */
+/* line 63, ../sass/_layout.scss */
 .show-left footer {
   margin-right: -40%;
 }
 
-/* line 67, ../sass/_layout.scss */
+/* line 68, ../sass/_layout.scss */
 .show-list .hide {
   display: none;
 }
-/* line 69, ../sass/_layout.scss */
+/* line 70, ../sass/_layout.scss */
 .show-left .show-list .hide {
   display: inline;
 }
-/* line 73, ../sass/_layout.scss */
+/* line 74, ../sass/_layout.scss */
 .show-list .show {
   display: inline;
 }
-/* line 75, ../sass/_layout.scss */
+/* line 76, ../sass/_layout.scss */
 .show-left .show-list .show {
   display: none;
 }
 
-/* line 80, ../sass/_layout.scss */
+/* line 81, ../sass/_layout.scss */
 .draggable {
   cursor: pointer;
 }
 
-/* line 83, ../sass/_layout.scss */
+/* line 84, ../sass/_layout.scss */
 .invisible {
   visibility: hidden;
 }
@@ -334,6 +335,16 @@ footer {
 #scoring-grid [data-strip-side="green"] {
   background-color: #0c0;
   color: white;
+}
+/* line 54, ../sass/modules/_scoring-chart.scss */
+#scoring-grid .notes-link {
+  width: 16px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  right: 3px;
+  top: 6px;
+  background: transparent url(/img/Notes-icon.png) right top no-repeat;
 }
 
 /* line 1, ../sass/modules/_modal-screen.scss */

@@ -51,4 +51,13 @@
 			background-color: #0c0;
 			color: white;
 	}
+	.notes-link {
+		width: 16px;
+		height: 16px;
+		display: block;
+		position: absolute;
+		right: 3px;
+		top: 6px;
+		background: transparent url(/img/Notes-icon.png) right top no-repeat;
+	}
 }
