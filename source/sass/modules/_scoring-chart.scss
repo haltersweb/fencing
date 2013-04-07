@@ -40,8 +40,15 @@
 	.not {
 		background-color: #135;
 	}
-	.drop-fencer.hover {
-		background-color: rgba(34,102,170,.5);
+	tbody th:first-child {
+		padding: 0;
+	}
+	.drop-fencer {
+		display: block;
+		padding: 5px;
+		&.hover {
+			background-color: rgba(34,102,170,.5);
+		}
 	}
 	[data-strip-side = "red"] {
 			background-color: #c00;
@@ -50,5 +57,14 @@
 	[data-strip-side = "green"] {
 			background-color: #0c0;
 			color: white;
+	}
+	.notes-link {
+		width: 16px;
+		height: 16px;
+		display: block;
+		position: absolute;
+		right: 3px;
+		top: 6px;
+		background: transparent url(/img/Notes-icon.png) right top no-repeat;
 	}
 }

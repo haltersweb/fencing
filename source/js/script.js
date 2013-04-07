@@ -14,10 +14,21 @@ var FNC = FNC || (function () {
         boutAssignment : null
       };
     },
+    fencerData : [],
+    /*
+      {
+        fencerId : null,
+        vScore : 0,
+        tsScore : 0,
+        trScore : 0,
+        indicator : 0,
+        place : 0
+      }
+    */
     tourneyData : {}, //FNC.model
     getTournaments : function () { //FNC.model
-      var eventId = prompt("Enter the event number.");
-      $.getJSON("data/86450.json")
+      var eventId = prompt("Enter the event number (86450).");
+      $.getJSON("data/" + eventId + ".json")
         .done(function (data) {
           console.log("Test JSON Data: " + data.event.preregs[0].competitor.first_name + " " + data.event.preregs[0].competitor.last_name);
           FNC.model.tourneyData = data.event;
@@ -27,6 +38,21 @@ var FNC = FNC || (function () {
           var err = textStatus + ', ' + error;
           console.log("Request Failed: " + err);
         });
+    },
+    initializeFencingData : function () {
+      for (var i = 0; i < 8; i++) {
+        FNC.model.fencerData[i] = {
+          fencerId : null,
+          vScore : 0,
+          tsScore : 0,
+          trScore : 0,
+          indicator : 0,
+          place : 0
+        }
+      }
+    },
+    setFencingData_Id : function (index,id) {
+      FNC.model.fencerData[index].fencerId = id;
     },
     setBoutAssignment : function ($currentFencers) { //FNC.model
       //nullify FNC.model.boutAssignment at end of bout
@@ -78,16 +104,22 @@ var FNC = FNC || (function () {
       var scorepadFencerPopulator = {};
       $('.draggable').draggable({ opacity: 0.7, helper: "clone", containment: "document", cursor: "pointer", revert: false, revertDuration: 300,
         start: function () {
+          //console.log('dragging');
           scorepadFencerPopulator = {
-            index : $(this).closest('li').attr('data-competitor-id'),
+            id : $(this).closest('li').attr('data-competitor-id'),
             text : $(this).text()
           };
         }
       });
       $('.drop-fencer').droppable({ hoverClass: "hover", tolerance: "pointer", accept: ".fencer",
         drop: function () {
-          $(this).attr('data-competitor-id', scorepadFencerPopulator.index);
+          //console.log('dropping');
+          var $parent = $(this).parent(),
+              seed = $parent.attr('data-fencer-seed'),
+              id = scorepadFencerPopulator.id;
+          $parent.attr('data-competitor-id', id);
           $(this).text(scorepadFencerPopulator.text);
+          FNC.model.setFencingData_Id((seed - 1), id);
         }
       });
     },
@@ -191,6 +223,7 @@ var FNC = FNC || (function () {
 
 $(document).ready(function () {
   'use strict';
+  FNC.model.initializeFencingData();
   FNC.model.getObjects();
   FNC.model.getTournaments();
   FNC.view.getObjects();
