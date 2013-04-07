@@ -52,7 +52,7 @@ var FNC = FNC || (function () {
       }
     },
     setFencingData_Id : function (index,id) {
-      FNC.model.fencerData[index] = id;
+      FNC.model.fencerData[index].fencerId = id;
     },
     setBoutAssignment : function ($currentFencers) { //FNC.model
       //nullify FNC.model.boutAssignment at end of bout
@@ -104,6 +104,7 @@ var FNC = FNC || (function () {
       var scorepadFencerPopulator = {};
       $('.draggable').draggable({ opacity: 0.7, helper: "clone", containment: "document", cursor: "pointer", revert: false, revertDuration: 300,
         start: function () {
+          //console.log('dragging');
           scorepadFencerPopulator = {
             id : $(this).closest('li').attr('data-competitor-id'),
             text : $(this).text()
@@ -112,9 +113,11 @@ var FNC = FNC || (function () {
       });
       $('.drop-fencer').droppable({ hoverClass: "hover", tolerance: "pointer", accept: ".fencer",
         drop: function () {
-          var seed = $(this).attr('data-fencer-seed'),
+          //console.log('dropping');
+          var $parent = $(this).parent(),
+              seed = $parent.attr('data-fencer-seed'),
               id = scorepadFencerPopulator.id;
-          $(this).attr('data-competitor-id', id);
+          $parent.attr('data-competitor-id', id);
           $(this).text(scorepadFencerPopulator.text);
           FNC.model.setFencingData_Id((seed - 1), id);
         }

@@ -323,20 +323,29 @@ footer {
   background-color: #135;
 }
 /* line 43, ../sass/modules/_scoring-chart.scss */
+#scoring-grid tbody th:first-child {
+  padding: 0;
+}
+/* line 46, ../sass/modules/_scoring-chart.scss */
+#scoring-grid .drop-fencer {
+  display: block;
+  padding: 5px;
+}
+/* line 49, ../sass/modules/_scoring-chart.scss */
 #scoring-grid .drop-fencer.hover {
   background-color: rgba(34, 102, 170, 0.5);
 }
-/* line 46, ../sass/modules/_scoring-chart.scss */
+/* line 53, ../sass/modules/_scoring-chart.scss */
 #scoring-grid [data-strip-side="red"] {
   background-color: #c00;
   color: white;
 }
-/* line 50, ../sass/modules/_scoring-chart.scss */
+/* line 57, ../sass/modules/_scoring-chart.scss */
 #scoring-grid [data-strip-side="green"] {
   background-color: #0c0;
   color: white;
 }
-/* line 54, ../sass/modules/_scoring-chart.scss */
+/* line 61, ../sass/modules/_scoring-chart.scss */
 #scoring-grid .notes-link {
   width: 16px;
   height: 16px;
